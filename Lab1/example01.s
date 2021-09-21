@@ -1,32 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-	<head>
-	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	    <link href="/library/skin/tool_base.css" type="text/css" rel="stylesheet" media="all" />
-	    <link href="/library/skin/notredame/tool.css" type="text/css" rel="stylesheet" media="all" />
-	    <meta http-equiv="Content-Style-Type" content="text/css" />
-	    <title>Sakai at the University of Notre Dame</title>
-	    <script type="text/javascript" language="JavaScript" src="/library/js/headscripts.js"></script>
-		<meta name="viewport" content="width=device-width"/>
-	</head>
-    <body class="portalBody Mrphs-portalBody">
-
-		<!-- choice.vm -->
-		<div id="Mrphs-choice">
-			<h1>Login Required</h1>
-			<aside class="logo"></aside>
-			<p class="msg">Select your authentication source</p>
-			<fieldset>
-				<a class="link" href="https://sakailogin.nd.edu/portal/xlogin" title="">
-										Email Login
-				</a>
-                                <a class="link" href="https://sakailogin.nd.edu/sakai-login-tool/container" title="">
-                                                                                NetID Login
-                                </a>
-			</fieldset>
-		</div>
-		<!-- end choice.vm -->
-				
-	</body>
-</html>
+		
+		mov		r3, #50	    ; initialize r3 to 50
+		mov		r4, #100    ; initialize r4 to 100
+		
+		mov		r0, #-7	    ; initialize r0 to -7
+		mov		r1, #-7	    ; initialize r1 to -7
+		cmp		r0, r1	    ; set flags
+		
+		beq		next	    ; if r0 and r1 equal, goto end
+		
+		add		r2, r3, r4  ; this instruction will be skipped
+		
+next		cmp		r3, r4      ; compare r3 and r4
+		blt		next1       ; if r3 < r4 -- it is -- goto next1
+		
+		add		r2, r3, r4  ; this instruction will be skipped
+		
+next1	bge		stop        ; if r3 >= r4, goto the end; still use same condition codes
+		
+		add		r2, r3, r4  ; this instruction will NOT be skipped
+		
+stop
+		end
